@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Identity;
 using PierreSweets.Models;
 using System.Collections.Generic;
 using System.Linq;
-
 using System.Threading.Tasks;
 using System.Security.Claims;
 
@@ -23,7 +22,6 @@ namespace PierreSweets.Controllers
       _userManager = userManager;
       _db = db;
     }
-
     public async Task<IActionResult> Index()
     {
       string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -31,6 +29,7 @@ namespace PierreSweets.Controllers
       List<Treat> userTreats = _db.Treats
                           .Where(entry => entry.User.Id == currentUser.Id)
                           .Include(treat => treat.JoinEntities)
+                          .ThenInclude(join => join.Flavor)
                           .ToList();
       return View(userTreats);
     } 

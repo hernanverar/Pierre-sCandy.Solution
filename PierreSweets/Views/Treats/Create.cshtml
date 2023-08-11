@@ -5,15 +5,13 @@
 @model PierreSweets.Models.Treat
 
 <h4>Add a new treat</h4>
-
+<p>@Html.ValidationMessageFor(model => model.TreatId, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 <p>@Html.ValidationMessageFor(model => model.TreatName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.TreatName)
   @Html.TextBoxFor(model => model.TreatName)
-  @Html.LabelFor(model => model.Description)
-  @Html.TextBoxFor(model => model.Description)
 
   <input type="submit" value="Add new treat" class="btn btn-default" />
 }

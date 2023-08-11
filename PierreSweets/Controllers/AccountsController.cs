@@ -1,11 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
 using PierreSweets.Models;
 using PierreSweets.ViewModels;
-using System.Threading.Tasks;
 
-
-namespace PierreSweets.Controllers
+namespace RecipeBox.Controllers
 
 {
   public class AccountController : Controller
@@ -14,7 +13,7 @@ namespace PierreSweets.Controllers
     private readonly UserManager<Account> _userManager;
     private readonly SignInManager<Account> _signInManager;
 
-    public AccountController(UserManager<Account> userManager, SignInManager<Account> signInManager, PierreSweetContext db)
+    public AccountController (UserManager<Account> userManager, SignInManager<Account> signInManager, PierreSweetContext db)
     {
       _userManager = userManager;
       _signInManager = signInManager;
@@ -26,13 +25,13 @@ namespace PierreSweets.Controllers
       return View();
     }
 
-    public IActionResult Register()
+    public IActionResult Register ()
     {
       return View();
     }
 
     [HttpPost]
-    public async Task<ActionResult> Register(RegisterViewModel model)
+    public async Task<ActionResult> Register (RegisterViewModel model)
     {
       if (!ModelState.IsValid)
       {
@@ -40,7 +39,7 @@ namespace PierreSweets.Controllers
       }
       else
       {
-        Account user = new Account { UserName = model.Email };
+        Account user = new Account { UserName = model.Email};
         IdentityResult result = await _userManager.CreateAsync(user, model.Password);
         if (result.Succeeded)
         {
@@ -73,15 +72,17 @@ namespace PierreSweets.Controllers
         Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
         if (result.Succeeded)
         {
-          return RedirectToAction("Index");
+          return RedirectToAction("Index", "Home");
         }
         else
         {
-          ModelState.AddModelError("", "There is something wrong with your email or username. Please try again.");
+            
+          ModelState.AddModelError("", "We do not have an account matching that username and password. Please make sure you spelled both of them correctly.");
           return View(model);
         }
       }
     }
+
     [HttpPost]
     public async Task<ActionResult> LogOff()
     {
