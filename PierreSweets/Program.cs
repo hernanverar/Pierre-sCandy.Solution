@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using PierreSweets.Models;
 using Microsoft.AspNetCore.Identity;
+using PierreSweets.Models;
+
 
 namespace PierreSweets
 {
@@ -23,7 +24,7 @@ namespace PierreSweets
                         )
                       );
       
-      builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+      builder.Services.AddIdentity<Account, IdentityRole>()
                 .AddEntityFrameworkStores<PierreSweetContext>()
                 .AddDefaultTokenProviders();
 
