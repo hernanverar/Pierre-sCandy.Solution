@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pierre's Sweets and Treats</title>
+    <link 
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" 
+      rel="stylesheet" 
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" 
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/styles.css">
+  
+  </head>
+  <body>
+    <header class="bg-primary py-3">
+      <div class="container text-center">
+        <h1 class="text-white">Pierre's Sweets and Treats</h1>
+        <nav>
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="text-white" href="/">Home</a></li>
+            <li class="list-inline-item"><a class="text-white" href="/Account">Account Page</a></li>
+            <li class="list-inline-item"><a class="text-white" href="/Treats">Treat List</a></li>
+            <li class="list-inline-item"><a class="text-white" href="/Flavors">Flavor List</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container text-center">
+      @RenderBody()
+    </div>
+  </body>
+</html>
