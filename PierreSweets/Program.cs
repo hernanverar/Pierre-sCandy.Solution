@@ -23,7 +23,7 @@ namespace PierreSweets
                         )
                       );
       
-      builder.Services.AddIdentity<Account, IdentityRole>()
+      builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<PierreSweetContext>()
                 .AddDefaultTokenProviders();
 
