@@ -1,0 +1,29 @@
+@{
+    Layout = "_Layout";
+}
+
+@model PierreSweets.Models.Flavor
+
+<h2>Flavor Details</h2>
+<hr />
+
+
+@if (Model.JoinEntities.Count == 0)
+{
+    <p>This tag does not have any Traets yet!</p>
+}
+else
+{
+    <h4>This flavor has the following Treat:</h4>
+    <ul>
+        @foreach (var join in Model.JoinEntities)
+        {
+            <li>Recipe: @join.Treat.TreatId</li>
+        }
+    </ul>
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.FlavorId })</p>
+<p>@Html.ActionLink("Add flavor", "AddFlavor", new { id = Model.FlavorId })</p>
+<p>@Html.ActionLink("Delete Traet", "Delete", new { id = Model.FlavorId })</p>
