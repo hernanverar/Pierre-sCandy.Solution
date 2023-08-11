@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace PierreSweets.ViewModels
-}
+{
   public class LoginViewModel
   {
     [Required]

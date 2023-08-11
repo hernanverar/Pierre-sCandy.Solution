@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using PierreSweets.Models;
 using PierreSweets.ViewModels;
-using RecipeBox.Models;
 using System.Threading.Tasks;
 
 

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace RecipeBox.Models
+namespace PierreSweets.Models
 {
   public class Account : IdentityUser
   {
