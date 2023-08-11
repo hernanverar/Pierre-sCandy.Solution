@@ -1,9 +1,14 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
 
-namespace PierreSweets.Models
-{
-    public class PierreSweetContext : IdentityDbContext<Account>
 
-}
+// namespace PierreSweets.Models
+// {
+//     public class PierreSweetContext : IdentityDbContext<ApplicationUser>
+//     }
+//         public DbSet<Treat> Treats { get; set; }
+//         public DbSet<Flavor> Flavors { get; set; }
+
+//         public PierreSweetContext(DbContextOptions options) : base(options) { }
+//     }
+// }
