@@ -5,19 +5,18 @@
 @model PierreSweets.Models.Flavor
 
 
-<h4>Add a flavor to a Treat:</h4>
+<h2>Add an treat</h2>
 
-<h4>Add @Html.DisplayFor(model => model.FlavorId) to this Treat:</h4>
+<h4>Add an treat to this flavor: @Html.DisplayFor(model => model.Description)</h4>
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.FlavorId)
+    @Html.HiddenFor(model => model.FlavorId)
 
-  @Html.Label("Select Flavor")
-  @Html.DropDownListFor(model => model.FlavorId, ViewBag.FlavorList as SelectList, "Select a Flavor", new { @class = "form-control" })
-  <br>
-  <input type="submit" value="Save" />
+    @Html.Label("Select treat")
+    @Html.DropDownList("TreatId")
 
+    <input type="submit" value="Save" />
 }
 
-  <p>@Html.ActionLink("Back to All Recipes", "Index")</p>
+<p>@Html.ActionLink("Back to list", "Index")</p>

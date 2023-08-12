@@ -9,7 +9,6 @@ namespace PierreSweets.Models
     [Required(ErrorMessage = "The Treat's name can't be empty!")]
     public string TreatName { get; set; }
     public string  Description { get; set; }
-    public int FlavorId { get; set; }
     public List<TreatFlavor> JoinEntities { get;}
     public Account User { get; set; }
   }

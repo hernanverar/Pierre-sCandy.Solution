@@ -40,7 +40,7 @@ namespace PierreSweets.Controllers
     }
 
     [HttpPost]
-    public async Task<ActionResult> Create(Treat treat)
+    public async Task<ActionResult> Create(Treat treat, int TreatId)
     {
       if (!ModelState.IsValid)
       {
@@ -67,7 +67,8 @@ namespace PierreSweets.Controllers
     }
 
     public ActionResult Edit(int id)
-    { Treat thisTreat = _db.Treats
+    { 
+      Treat thisTreat = _db.Treats
       .FirstOrDefault(treat => treat.TreatId == id);
       return View(thisTreat);
     }
@@ -98,7 +99,7 @@ namespace PierreSweets.Controllers
     public ActionResult AddFlavor(int id)
     {
       Treat thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
-      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Description");
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorId");
       return View(thisTreat);
     }
 

@@ -7,29 +7,26 @@
 <h2>Recipe Details</h2>
 <hr />
 <div>
-    <h3>@Html.DisplayNameFor(model => model.TreatName): @Html.DisplayFor(model => model.TreatName)</h3>
-    <h4>Ingredients:</h4>
-    <p>@Model.Description</p>
-    <h4>Instructions:</h4>
-    <p>@Model.Description</p> 
+    <h3>@Html.DisplayNameFor(model => model.TreatName): @Html.DisplayFor(model => model.Description)</h3>
+  
 </div>
 
 @if (Model.JoinEntities.Count == 0)
 {
-    <p>This recipe does not have any tags yet!</p>
+    <p>This treat does not have any flavors yet!</p>
 }
 else
 {
-    <h4>This recipe has the following tags:</h4>
+    <h4>This Treat has the following flavors:</h4>
     <ul>
         @foreach (var join in Model.JoinEntities)
         {
-            <li>Tag: @join.Treat.Description</li>
+            <li>Flavor: @join.Treat.Description</li>
         }
     </ul>
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit Recipe", "Edit", new { id = Model.TreatId })</p>
-<p>@Html.ActionLink("Add Tag", "AddTag", new { id = Model.TreatId })</p>
-<p>@Html.ActionLink("Delete Recipe", "Delete", new { id = Model.TreatId })</p>
+<p>@Html.ActionLink("Add Flavors", "AddFlavor", new { id = Model.TreatId })</p>
+<p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</p>
