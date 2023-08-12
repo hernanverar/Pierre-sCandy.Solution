@@ -1,10 +1,14 @@
 # Pierre'Candy Solution
 
+## description:
+
+This an MVC web application for Pierre's Sweet and Savory Treats to track their Treats and flavors.
+
 ## By Hernan Verar
 
 ## Technologies Used:
 * C#
-* .NET 6.0
+* Dotnet 6.0
 * MySql
 * ASP.NET Core
 * MVC
@@ -12,6 +16,8 @@
 * Pomelo Entity Framework Core
 * EF Core Migrations
 * HTML Helpers
+* Css
+
 
 ## Setup/Installation Req's:
 
@@ -35,7 +41,9 @@
 
 In your terminal- in the project directory (Pierre-Candy.Solution/PierreSweets), run ```dotnet ef database update```
 
+## Known Bugs
 
+* If you are experiencing any bugs, please contact Hernanverar@gmail.com
 # License; MIT License
 
 Copyright (c) [2023] [Hernan Verar]
