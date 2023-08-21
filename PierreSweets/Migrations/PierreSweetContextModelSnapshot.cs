@@ -240,9 +240,6 @@ namespace PierreSweets.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("longtext");
 
-                    b.Property<int>("FlavorId")
-                        .HasColumnType("int");
-
                     b.Property<string>("TreatName")
                         .IsRequired()
                         .HasColumnType("longtext");

@@ -35,7 +35,7 @@ This an MVC web application for Pierre's Sweet and Savory Treats to track their 
 }
 ```
 5. Run ```dotnet watch run``` to view the project in your web browser. Enter your computer password when prompted.
-
+6. The application should the be available at: https://localhost:5001/
 
 ### Set up the Databases
 

@@ -1,3 +1,4 @@
+
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
@@ -22,17 +23,30 @@ namespace PierreSweets.Controllers
       _userManager = userManager;
       _db = db;
     }
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(string sortOrder)
     {
       string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       Account currentUser = await _userManager.FindByIdAsync(userId);
       List<Treat> userTreats = _db.Treats
                           .Where(entry => entry.User.Id == currentUser.Id)
                           .Include(treat => treat.JoinEntities)
-                          .ThenInclude(join => join.Flavor)
                           .ToList();
-      return View(userTreats);
-    } 
+      // return View(userTreats);
+
+      var treats = from r in userTreats
+                    select r;
+
+      switch (sortOrder)
+      {
+        case "name_desc":
+          treats = userTreats.OrderBy(r => r.TreatName);
+          break;
+        default:
+          treats = userTreats.OrderBy(r => r.TreatId);
+          break;
+      }
+      return View(treats);
+    }
 
     public ActionResult Create()
     {
@@ -40,7 +54,7 @@ namespace PierreSweets.Controllers
     }
 
     [HttpPost]
-    public async Task<ActionResult> Create(Treat treat, int TreatId)
+    public async Task<ActionResult> Create(Treat treat)
     {
       if (!ModelState.IsValid)
       {
@@ -67,9 +81,9 @@ namespace PierreSweets.Controllers
     }
 
     public ActionResult Edit(int id)
-    { 
-      Treat thisTreat = _db.Treats
-      .FirstOrDefault(treat => treat.TreatId == id);
+    {
+      Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      //ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
       return View(thisTreat);
     }
 
@@ -99,7 +113,7 @@ namespace PierreSweets.Controllers
     public ActionResult AddFlavor(int id)
     {
       Treat thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
-      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorId");
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Description");
       return View(thisTreat);
     }
 

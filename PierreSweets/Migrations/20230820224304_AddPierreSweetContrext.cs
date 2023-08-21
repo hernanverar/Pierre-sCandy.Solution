@@ -4,7 +4,7 @@
 
 namespace PierreSweets.Migrations
 {
-    public partial class AddTreats : Migration
+    public partial class AddPierreSweetContrext : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

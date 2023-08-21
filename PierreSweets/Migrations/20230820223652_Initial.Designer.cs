@@ -11,8 +11,8 @@ using PierreSweets.Models;
 namespace PierreSweets.Migrations
 {
     [DbContext(typeof(PierreSweetContext))]
-    [Migration("20230811220107_AddApplicationUser")]
-    partial class AddApplicationUser
+    [Migration("20230820223652_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -241,9 +241,6 @@ namespace PierreSweets.Migrations
 
                     b.Property<string>("Description")
                         .HasColumnType("longtext");
-
-                    b.Property<int>("FlavorId")
-                        .HasColumnType("int");
 
                     b.Property<string>("TreatName")
                         .IsRequired()

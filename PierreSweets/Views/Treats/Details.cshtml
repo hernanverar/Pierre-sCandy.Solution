@@ -1,14 +1,14 @@
 @{
     Layout = "_Layout";
 }
-
+@using PierreSweets.Models
 @model PierreSweets.Models.Treat
 
-<h2>Recipe Details</h2>
+<h2>Treat Details</h2>
 <hr />
 <div>
-    <h3>@Html.DisplayNameFor(model => model.TreatName): @Html.DisplayFor(model => model.Description)</h3>
-  
+    <h3>@Html.DisplayNameFor(model => model.TreatName): @Html.DisplayFor(model => model.TreatName)</h3>
+    <h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>   
 </div>
 
 @if (Model.JoinEntities.Count == 0)
@@ -18,12 +18,17 @@
 else
 {
     <h4>This Treat has the following flavors:</h4>
-    <ul>
-        @foreach (var join in Model.JoinEntities)
-        {
-            <li>Flavor: @join.Treat.Description</li>
-        }
-    </ul>
+  <ul>
+    @foreach(TreatFlavor join in Model.JoinEntities)
+    {
+    <li>Flavor: @join.Flavor.Description</li>
+      @using (Html.BeginForm("DeleteJoin", "Treats"))
+      {
+        @Html.Hidden("joinId", @join.TreatFlavorId)
+        <input type="submit" value="Delete"/>
+      }
+    }
+  </ul>
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
