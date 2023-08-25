@@ -1,14 +1,15 @@
 # Pierre'Candy Solution
 
+## By Hernan Verar
+
 ## description:
 
-This an MVC web application for Pierre's Sweet and Savory Treats to track their Treats and flavors.
-
-## By Hernan Verar
+This an MVC web application enables users to log in and log out through user authentication for Pierre's Sweet and Savory Treats to track their Treats and flavors.. Log in users are allow to create, update, delete, and save treats on their profile.
 
 ## Technologies Used:
 * C#
 * Dotnet 6.0
+* Git
 * MySql
 * ASP.NET Core
 * MVC
@@ -27,24 +28,24 @@ This an MVC web application for Pierre's Sweet and Savory Treats to track their 
 3. Within the production directory "PierreSweets", create a new file called `appsettings.json`.
 4. Within `appsettings.json`, put in the following code, replacing the `uid` and `pwd` values with your own username and password for MySQL. For the LearnHowToProgram.com lessons, we always assume the `uid` is `root` and the `pwd` is `epicodus`.
 
-```json
+# Add this to your Appsettings
 {
   "ConnectionStrings": {
       "DefaultConnection": "Server=localhost;Port=3306;database=;uid=[YOUR SQL USERNAME];pwd=[YOUR SQL PASSWORD];"
   }
 }
 
-5.In your terminal- in the project directory (Pierre-Candy.Solution/PierreSweets), run ```dotnet ef database update```
+5. In your terminal- in the project directory (Pierre-Candy.Solution/PierreSweets), run ```dotnet ef database update```
 6. Run ```dotnet watch run``` to view the project in your web browser. Enter your computer password when prompted.
 7. The application should the be available at: https://localhost:5001/
 
-### Set up the Databases
 
 
 
 ## Known Bugs
 
 * If you are experiencing any bugs, please contact Hernanverar@gmail.com
+
 # License; MIT License
 
 Copyright (c) [2023] [Hernan Verar]
