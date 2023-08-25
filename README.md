@@ -33,13 +33,14 @@ This an MVC web application for Pierre's Sweet and Savory Treats to track their 
       "DefaultConnection": "Server=localhost;Port=3306;database=;uid=[YOUR SQL USERNAME];pwd=[YOUR SQL PASSWORD];"
   }
 }
-```
-5. Run ```dotnet watch run``` to view the project in your web browser. Enter your computer password when prompted.
-6. The application should the be available at: https://localhost:5001/
+
+5.In your terminal- in the project directory (Pierre-Candy.Solution/PierreSweets), run ```dotnet ef database update```
+6. Run ```dotnet watch run``` to view the project in your web browser. Enter your computer password when prompted.
+7. The application should the be available at: https://localhost:5001/
 
 ### Set up the Databases
 
-In your terminal- in the project directory (Pierre-Candy.Solution/PierreSweets), run ```dotnet ef database update```
+
 
 ## Known Bugs
 

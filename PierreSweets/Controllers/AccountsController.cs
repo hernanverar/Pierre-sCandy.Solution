@@ -10,10 +10,10 @@ namespace RecipeBox.Controllers
   public class AccountController : Controller
   {
     private readonly PierreSweetContext _db;
-    private readonly UserManager<Account> _userManager;
-    private readonly SignInManager<Account> _signInManager;
+    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly SignInManager<ApplicationUser> _signInManager;
 
-    public AccountController (UserManager<Account> userManager, SignInManager<Account> signInManager, PierreSweetContext db)
+    public AccountController (UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, PierreSweetContext db)
     {
       _userManager = userManager;
       _signInManager = signInManager;
@@ -39,7 +39,7 @@ namespace RecipeBox.Controllers
       }
       else
       {
-        Account user = new Account { UserName = model.Email};
+        ApplicationUser user = new ApplicationUser { UserName = model.Email};
         IdentityResult result = await _userManager.CreateAsync(user, model.Password);
         if (result.Succeeded)
         {

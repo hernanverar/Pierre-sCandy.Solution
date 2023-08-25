@@ -7,7 +7,7 @@
 <h2>Flavor Details</h2>
 <hr />
 
-<h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
+<h3>@Html.DisplayNameFor(model => model.FlavorName): @Html.DisplayFor(model => model.FlavorName)</h3>
 
 @if (Model.JoinEntities.Count == 0)
 {
@@ -17,20 +17,18 @@ else
 {
     <h4>This flavor has the following Treat:</h4>
 
-    <ul>
+  <ul>
   @foreach(TreatFlavor join in Model.JoinEntities)
   {
     <li>@join.Treat.TreatName</li>
-    @using (Html.BeginForm("DeleteJoin", "Flavors"))
-    {
-    @Html.Hidden("joinId", @join.TreatFlavorId)
-    <input type="submit" value="Delete"/>
-    }
   }
   </ul>
-}
+  }
+  </ul>
+
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.FlavorId })</p>
 <p>@Html.ActionLink("Add Treat", "AddTreat", new { id = Model.FlavorId })</p>
 <p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.FlavorId })</p>
+@Html.ActionLink("Return Home", "Index", "Home", null, new { @class = "btn btn-secondary" })

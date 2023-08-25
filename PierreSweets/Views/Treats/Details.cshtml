@@ -7,8 +7,7 @@
 <h2>Treat Details</h2>
 <hr />
 <div>
-    <h3>@Html.DisplayNameFor(model => model.TreatName): @Html.DisplayFor(model => model.TreatName)</h3>
-    <h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>   
+    <h3>@Html.DisplayNameFor(model => model.TreatName): @Html.DisplayFor(model => model.TreatName)</h3>  
 </div>
 
 @if (Model.JoinEntities.Count == 0)
@@ -21,17 +20,13 @@ else
   <ul>
     @foreach(TreatFlavor join in Model.JoinEntities)
     {
-    <li>Flavor: @join.Flavor.Description</li>
-      @using (Html.BeginForm("DeleteJoin", "Treats"))
-      {
-        @Html.Hidden("joinId", @join.TreatFlavorId)
-        <input type="submit" value="Delete"/>
-      }
+    <li>Flavor: @join.Flavor.FlavorName</li>
     }
   </ul>
 }
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit Recipe", "Edit", new { id = Model.TreatId })</p>
-<p>@Html.ActionLink("Add Flavors", "AddFlavor", new { id = Model.TreatId })</p>
-<p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</p>
+ <p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</p>
+    <p>@Html.ActionLink("Add Flavor to Treat", "AddFlavor", new {id = Model.TreatId})</p>
+    <p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId})</p>
+    <p>@Html.ActionLink("Back to all Treats", "Index")</p>
+@Html.ActionLink("Return Home", "Index", "Home", null, new { @class = "btn btn-secondary" })

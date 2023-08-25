@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace PierreSweets.Models
 {
-  public class Account : IdentityUser
+  public class ApplicationUser : IdentityUser
   {
 
   }

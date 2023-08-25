@@ -1,6 +1,6 @@
 ﻿
 @{
-  Layout = "_Layout";
+    Layout = "_Layout";
 }
 
 @using PierreSweets.Models;
@@ -11,30 +11,42 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-  <h4>Treats for @User.Identity.Name</h4>
-  @if (Model["treats"].Length == 0)
-  {
-    <p>No treats have been added yet!</p>
-  } 
-  <ul>
-    @foreach (Treat treat in Model["treats"])
+    <h4>Treats for @User.Identity.Name</h4>
+    @if (Model["treats"].Length == 0)
     {
-      <li>@Html.ActionLink(@treat.TreatName, "Details", "Treats", new { id = @treat.TreatId})</li>
+        <p>No treats have been added yet!</p>
     }
-  </ul>
+    else
+    {
+        <ul>
+            @foreach (Treat treat in Model["treats"])
+            {
+                <li>@Html.ActionLink(treat.TreatName, "Details", "Treats", new { id = treat.TreatId })</li>
+            }
+        </ul>
+    }
 }
 else
 {
-  <h4>All Treats</h4>
-      @foreach (Treat treat in Model)
+    <h4>All Treats</h4>
+    @if (Model["treats"].Length == 0)
     {
-      <li>@Html.ActionLink(@treat.TreatName, "Details", "Treats", new { id = @treat.TreatId})</li>
+        <p>No treats have been added yet!</p>
     }
-  <p>Please @Html.ActionLink("log in", "LogIn", "Account") manage your treats.</p>
+    else
+    {
+        <ul>
+            @foreach (Treat treat in (Treat[])Model["treats"])
+            {
+                <li>@Html.ActionLink(treat.TreatName, "Details", "Treats", new { id = treat.TreatId })</li>
+            }
+        </ul>
+    }
+    <p>Please @Html.ActionLink("log in", "LogIn", "Account") manage your treats.</p>
 }
 
 <hr>
 
-<p>@Html.ActionLink("Manage treats", "Index", "Treats")</p> 
+<p>@Html.ActionLink("Manage treats", "Index", "Treats")</p>
 <p>@Html.ActionLink("Manage flavors", "Index", "Flavors")</p>
 <p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p>

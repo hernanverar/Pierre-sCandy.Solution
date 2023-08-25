@@ -7,9 +7,8 @@ namespace PierreSweets.Models
   {
     public int FlavorId { get; set; }
     [Required(ErrorMessage = "The Flavor's description can't be empty!")]
-    public string Description { get; set; }
-    public List<TreatFlavor> JoinEntities { get;}
-    public Account User { get; set; }
+    public string FlavorName { get; set; }
+    public List<TreatFlavor> JoinEntities { get; set;}
 
   }
 }

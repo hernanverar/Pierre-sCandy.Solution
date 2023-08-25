@@ -12,15 +12,12 @@
 {
   @Html.HiddenFor(model => model.TreatId)
 
-  @Html.LabelFor(model => model.TreatName)
-  @Html.EditorFor(model => model.TreatName)
-
-    @Html.LabelFor(model => model.Description)
-  @Html.EditorFor(model => model.Description)
-
-  
+        <label class="label">@Html.DisplayNameFor(model => model.TreatName)</label>
+            @Html.EditorFor(model => model.TreatName, new { @class = "form-control" })
+            <p class="text-danger font-weight-bold">@Html.ValidationMessageFor(model => model.TreatName)</p>
 
   <input type="submit" value="Save" />
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Back to All Treats", "Index", null, new { @class = "btn btn-secondary" })</p>
